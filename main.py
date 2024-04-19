@@ -83,7 +83,7 @@ class Character(Person):
         pass
 
 
-class Battle:
+class Fight:
 
     def __init__(self):
         self.fight_dict = {}
@@ -101,14 +101,20 @@ class Battle:
     def end_fight(self):
         pass
 
+
+""" TODO LIST
+1. Инициализация монстра посредством поиска его в monsters.json
+1.1 Перенести всех из бестиария
+2. Использование damage_type_list для проверки уменьшения урона от конкретного типа
+3. Реализовать до конца класс Fight
+3.1 Добавление монстров
+3.2 Новый ход 
+3.3 Удаление монстров и перенос их в dead_list
+4. Написать требования к API
+5. Заполнить словать states_duration_dict
+6. В классе Fight сделать обработчик статусов, включенный в обработчик нового хода  
 """
-1. Инициализация посредством поиска его в monsters.json
-2. Список таких персонажей
-3. Функция снижающая и считающая урон на основе типа атаки - должна понижать здоровье цели
-4. Автофункция, которая каждый ход проверяет статус цели, понижает здоровье, выводит информацию о её текущем состоянии
-5. Функция чтения команд и функция обработчик команд - возможно стоит начать как раз с этого?
-6. -??!
-"""
+
 
 def roll_dice(dice_number, edges):
     return ", ".join([str(random.randint(1, edges)) for i in range(dice_number)])
@@ -117,10 +123,20 @@ def roll_dice(dice_number, edges):
 def get_skill_by_name():
     pass
 
+
 # Словарь...или список? Со всеми видами урона
-damage_type_dict = {}
+damage_type_list = ["fire", "frost", "lightning", "holy", "filth", "pricking", "cutting", "crushing"]
+states_duration_dict = {"burned": 1, "bleeding_low": 3, "bleeding_medium": 4, "high_bleeding": 999, }
 # словарь со всеми способностями: слабый яд на хп, ошеломление, и все, что поедт в State
 # возможно это стоит определить где-то еще, вообще обработка state можно сделать отдельным классом, так как сложные механики
 # в общем и целом TODO
 ability_type_dict = {}
 players_list = []
+
+class B:
+    def foo(self):
+        return 1
+
+a = eval("foo")
+
+print(B().a)
